@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bot Démineur</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="../../index.html">Accueil</a></li>
+    <li class="dropdown">
+      <a href="#" id="competence-toggle">Compétence</a>
+      <ul class="dropdown-menu" id="competence-menu">
+        <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+        <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+        <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+        <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+        <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+        <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+      </ul>
+    </li>
+    <li><a href="../index.html">Project</a></li>
+    <li class="lang-item"><a href="#" id="lang">FR</a></li>
+  </ul>
+</nav>
+
+<div class="area" >
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div >
+
+
+<div class="container">
+  <h1 class = "titre">Number Memory</h1>
+
+  <div class="but">
+    <h2>Explication du projet</h2>
+    <p>
+      Ce projet a pour objectif de développer un petit jeu de mémorisation de nombres en Java.
+      L'utilisateur dispose de 10 secondes pour mémoriser une suite de chiffres qui s'affiche brièvement à l'écran.
+      Il doit ensuite réécrire correctement la suite dans un champ de saisie.
+      À chaque réussite, la longueur de la suite augmente de 1.
+    </p>
+
+    <br>
+
+    <h2>Objectifs</h2>
+    <ul>
+      <li>Utiliser l’IHM de Java (Swing) pour développer une application interactive.</li>
+      <li>Structurer une logique de jeu simple.</li>
+      <li>Appliquer des bonnes pratiques de développement en Java.</li>
+      <li>Apprendre à gérer des timers et des événements utilisateurs</li>
+    </ul>
+
+    <br>
+
+    <h2>Outils utilisés</h2>
+    <ul>
+      <li><strong>Java</strong></li>
+      <li><strong>Swing</strong></li>
+    </ul>
+  </div>
+
+
+  <!-- Mettre l'image de l'appli -->
+
+  <div class="all_vers">
+    <div class="ver">
+      <h3>Version 1</h3>
+      <p>Détection des cases et clics aléatoires. Aucun raisonnement logique, uniquement pour tester les interactions de
+        base avec le jeu.</p>
+    </div>
+    <div class="ver">
+      <h3>Version 2</h3>
+      <p>Lecture de la grille avec des pixels precis dans chaque case pour identifié le nombre ou le type de case.
+      Et ajout de logique, avec des condition certaine comme par exemple, si il ya le nombre 2 avec 2 cases autour
+      cela ve dire qu'il y a 2 bombes donc il place 2 drapeau. </p>
+    </div>
+    <div class="ver">
+      <h3>Version 3</h3>
+      <p>Placement de drapeaux plus précis, meilleure gestion des probabilités lorsque les choix deviennent ambigus. Début d'une stratégie plus flexible.</p>
+    </div>
+    <div class="ver">
+      <h3>Version 4</h3>
+      <p>Optimisation du code, gestion de cas complexes, et meilleure stabilité. Le bot devient plus rapide et prend moins de mauvaises décisions.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
