@@ -1,103 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Bot Démineur</title>
+  <meta charset="UTF-8">
+  <title>Number Memory</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="../../index.html">Accueil</a></li>
-    <li class="dropdown">
-      <a href="#" id="competence-toggle">Compétence</a>
-      <ul class="dropdown-menu" id="competence-menu">
-        <li><a href="../../Competence1/index.html">Compétence 1</a></li>
-        <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
-        <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
-        <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
-        <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
-        <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+<div class="page-container">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#" id="competence-toggle">Compétence</a>
+        <ul class="dropdown-menu" id="competence-menu">
+          <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+          <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+          <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+          <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+          <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+          <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Project</a></li>
+    </ul>
+  </nav>
+
+  <div class="area">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1 class="titre">Number Memory</h1>
+
+    <div class="but">
+      <h2>Présentation du projet</h2>
+      <h3>Explication du projet</h3>
+      <p>
+        Ce projet a pour objectif de développer un petit jeu de mémorisation de nombres en Java.
+        L'utilisateur dispose de 5 secondes pour mémoriser une suite de chiffres qui s'affiche brièvement à l'écran.
+        Il doit ensuite réécrire correctement la suite dans un champ de saisie.<br>
+        À chaque réussite, la longueur de la suite augmente de 1.
+      </p>
+
+      <h3>Objectifs</h3>
+      <ul>
+        <li>Utiliser l’IHM de Java (Swing) pour développer une application interactive.</li>
+        <li>Structurer une logique de jeu simple.</li>
+        <li>Appliquer des bonnes pratiques de développement en Java.</li>
+        <li>Apprendre à gérer des timers et des événements utilisateurs</li>
       </ul>
-    </li>
-    <li><a href="../index.html">Project</a></li>
-    <li class="lang-item"><a href="#" id="lang">FR</a></li>
-  </ul>
-</nav>
 
-<div class="area" >
-  <ul class="circles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div >
+      <h3>Outils utilisés</h3>
+      <ul>
+        <li><strong>Java</strong></li>
+        <li><strong>Swing</strong> - Pour l'IHM</li>
+        <li><strong>IntelliJ IDEA Community Edition</strong> - IDE</li>
+      </ul>
+    </div>
 
+    <div class="but">
+      <h2>Le jeu</h2>
+      <div class="jeu-container">
+        <div class="video-wrapper">
+          <video src="../../video/NumberMemory.mp4" loop autoplay muted playsinline>
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+        </div>
+        <div class="jeu-description">
+          <p>
+            Le jeu affiche une séquence de chiffres générée aléatoirement, que l’utilisateur doit mémoriser.
+            Il dispose d’un chronomètre de 5 secondes pour la lire, après quoi elle disparaît.
+            Il doit alors la ressaisir dans un champ prévu à cet effet. S’il réussit, le niveau augmente et la séquence s’allonge.
+            Sinon, le jeu affiche un message de défaite. Le jeu se répète indéfiniment jusqu’à une erreur.
+          </p>
 
-<div class="container">
-  <h1 class = "titre">Number Memory</h1>
+          <p>
+            Cette vidéo montre une démonstration du jeu Number Memory en action. Vous pouvez voir comment le nombre s'affiche,
+            le chrono défile, et comment l'utilisateur doit saisir la suite de chiffres avant la fin du temps imparti.
+          </p>
+        </div>
+      </div>
+    </div>
 
-  <div class="but">
-    <h2>Explication du projet</h2>
-    <p>
-      Ce projet a pour objectif de développer un petit jeu de mémorisation de nombres en Java.
-      L'utilisateur dispose de 10 secondes pour mémoriser une suite de chiffres qui s'affiche brièvement à l'écran.
-      Il doit ensuite réécrire correctement la suite dans un champ de saisie.
-      À chaque réussite, la longueur de la suite augmente de 1.
-    </p>
+    <div class="but">
+      <h2>Architecture et conception</h2>
+      <div class="exp">
+        <img src="../../image/Capture%20d’écran%202025-06-19%20221639.png" alt="Capture écran version 1">
+      </div>
+      <p class="description">Schéma UML du Number Memory.</p>
+      <p style="text-align: center; font-style: italic;">
+        Le projet complet suit un schéma MVP, et repose sur trois classes principales : <code>NumberMemoryModel</code>, <code>NumberMemoryView</code>, et <code>Controleur</code>.
+      </p>
+    </div>
 
-    <br>
+    <div class="but">
+      <h2>Fonctionnement</h2>
+      <ol>
+        <li>Le niveau commence à 1.</li>
+        <li>Un nombre aléatoire est généré selon le niveau (ex. : niveau 3 → 3 chiffres).</li>
+        <li>Ce nombre est affiché pendant 5 secondes avec un chrono.</li>
+        <li>Il est ensuite masqué, et l’utilisateur doit le retaper.</li>
+        <li>Si la réponse est correcte → niveau suivant.</li>
+        <li>Si la réponse est incorrecte → le jeu affiche "Perdu !" et s’arrête.</li>
+      </ol>
+    </div>
 
-    <h2>Objectifs</h2>
-    <ul>
-      <li>Utiliser l’IHM de Java (Swing) pour développer une application interactive.</li>
-      <li>Structurer une logique de jeu simple.</li>
-      <li>Appliquer des bonnes pratiques de développement en Java.</li>
-      <li>Apprendre à gérer des timers et des événements utilisateurs</li>
-    </ul>
+    <div class="but">
+      <h2>Qualité du code et bonnes pratiques</h2>
+      <ul>
+        <li>Utilisation du modèle MVP (Modèle–Vue–Présentateur) pour structurer le projet</li>
+        <li>Code modulaire et facilement maintenable : chaque classe a une responsabilité précise</li>
+        <li>Noms de classes, variables et méthodes clairs et explicites</li>
+        <li>Interaction Swing bien isolée dans la vue</li>
+        <li>Pas de duplication de code inutile, logique centralisée</li>
+      </ul>
+    </div>
 
-    <br>
+    <div class="but">
+      <h2>Tests et améliorations</h2>
+      <div class="duo">
+        <div class="ensemble">
+          <h3>Tests</h3>
+          <ul>
+            <li>Affichage correct des chiffres selon le niveau</li>
+            <li>Fonctionnement du chronomètre testé manuellement</li>
+            <li>Vérification des saisies utilisateur</li>
+            <li>Gestion correcte des cas de victoire et de défaite</li>
+          </ul>
+        </div>
+        <div class="ensemble">
+          <h3>Améliorations possibles</h3>
+          <ul>
+            <li>Amélioration de l’interface graphique pour plus de clarté et d'esthétique</li>
+            <li>Remplacer <code>Thread.sleep</code> par un <code>Swing Timer</code> pour éviter les blocages de l’interface</li>
+            <li>Ajouter un système de scores ou de sauvegarde</li>
+            <li>Ajouter des sons ou animations pour un meilleur retour utilisateur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <h2>Outils utilisés</h2>
-    <ul>
-      <li><strong>Java</strong></li>
-      <li><strong>Swing</strong></li>
-    </ul>
+    <div class="but">
+      <h2>Bilan personnel</h2>
+      <p>
+        Ce projet m’a permis de comprendre concrètement l’organisation d’un programme Java avec interface graphique, et d’explorer le modèle MVP.
+        J’ai appris à structurer mon code de manière modulaire, à gérer des entrées utilisateurs, et à utiliser les composants Swing pour créer une interface simple mais fonctionnelle.
+      </p>
+      <p>
+        <strong>Points forts :</strong> structure claire, logique simple, projet abouti.<br>
+        <strong>Difficultés :</strong> gestion des timers bloquants, design de l’IHM limité par Swing.<br>
+        <strong>Axes d’amélioration :</strong> UI plus moderne, gestion non-bloquante du temps, meilleure modularisation.
+      </p>
+    </div>
+
+    <div class="but" style="text-align: center;">
+      <a href="https://github.com/Moonrise01/number-memory" target="_blank" class="btn-source">
+        Voir le code sur GitHub
+      </a>
+    </div>
+
   </div>
 
-
-  <!-- Mettre l'image de l'appli -->
-
-  <div class="all_vers">
-    <div class="ver">
-      <h3>Version 1</h3>
-      <p>Détection des cases et clics aléatoires. Aucun raisonnement logique, uniquement pour tester les interactions de
-        base avec le jeu.</p>
+  <footer>
+    <h2>Contact</h2>
+    <hr class="bottom_line">
+    <div class="contact">
+      <a href="#"><img src="../../image/linkedin.png" alt=""></a>
+      <a href="https://github.com/Moonrise01"><img src="../../image/github.png" alt=""></a>
+      <a href="#"><img src="../../image/mail.png" alt=""></a>
     </div>
-    <div class="ver">
-      <h3>Version 2</h3>
-      <p>Lecture de la grille avec des pixels precis dans chaque case pour identifié le nombre ou le type de case.
-      Et ajout de logique, avec des condition certaine comme par exemple, si il ya le nombre 2 avec 2 cases autour
-      cela ve dire qu'il y a 2 bombes donc il place 2 drapeau. </p>
-    </div>
-    <div class="ver">
-      <h3>Version 3</h3>
-      <p>Placement de drapeaux plus précis, meilleure gestion des probabilités lorsque les choix deviennent ambigus. Début d'une stratégie plus flexible.</p>
-    </div>
-    <div class="ver">
-      <h3>Version 4</h3>
-      <p>Optimisation du code, gestion de cas complexes, et meilleure stabilité. Le bot devient plus rapide et prend moins de mauvaises décisions.</p>
-    </div>
-  </div>
-
+  </footer>
 </div>
 </body>
 </html>

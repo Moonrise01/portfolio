@@ -1,101 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Bot Démineur</title>
+  <meta charset="UTF-8">
+  <title>Bot Démineur</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="../../index.html">Accueil</a></li>
-    <li class="dropdown">
-      <a href="#" id="competence-toggle">Compétence</a>
-      <ul class="dropdown-menu" id="competence-menu">
-        <li><a href="../../Competence1/index.html">Compétence 1</a></li>
-        <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
-        <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
-        <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
-        <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
-        <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+<div class="page-container">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#" id="competence-toggle">Compétence</a>
+        <ul class="dropdown-menu" id="competence-menu">
+          <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+          <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+          <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+          <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+          <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+          <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Project</a></li>
+    </ul>
+  </nav>
+
+  <div class="area">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1 class="titre">Bot Démineur</h1>
+
+    <div class="but">
+      <h2>Présentation du projet</h2>
+      <h3>Explication du projet</h3>
+      <p>
+        Ce projet consiste en un bot capable de jouer au Démineur de manière autonome.
+        Le développement s'est fait de manière itérative, avec plusieurs versions successives
+        démontrant une évolution dans la complexité et l'efficacité de la solution.
+      </p>
+
+      <h3>Objectifs</h3>
+      <ul>
+        <li>Appliquer la programmation orientée objet en Python</li>
+        <li>Résoudre un problème complexe en plusieurs itérations</li>
+        <li>Expérimenter des techniques d'IA de base</li>
+        <li>Automatiser une tâche humaine à l'aide de l'analyse d'écran</li>
       </ul>
-    </li>
-    <li><a href="../index.html">Project</a></li>
-    <li class="lang-item"><a href="#" id="lang">FR</a></li>
-  </ul>
-</nav>
 
-<div class="area" >
-  <ul class="circles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div >
+      <h3>Outils utilisés</h3>
+      <ul>
+        <li><strong>Python</strong></li>
+        <li><strong>PyAutoGUI</strong> – pour interagir avec l'écran</li>
+        <li><strong>Pillow</strong> – pour l'analyse de pixels</li>
+        <li><strong>PyCharm Community</strong> - IDE</li>
+      </ul>
+    </div>
 
-<div class="container">
-  <h1 class = "titre">Bot Démineur</h1>
+    <div class="but">
+      <h2>Le bot</h2>
+      <div class="jeu-container">
+        <!-- Video à mettre-->
+        <div class="jeu-description">
+          <h3>Versions du bot</h3>
+          <ul>
+            <li><strong>Version 1 :</strong> clique aléatoire sur la grille</li>
+            <li><strong>Version 2 :</strong> raisonnement logique simple</li>
+            <li><strong>Version 3 (à venir) :</strong> système de probabilité</li>
+            <li><strong>Version 4 (à venir) :</strong> reconnaissance d'image complète</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  <div class="but">
-    <h2>Explication du projet</h2>
-    <p>
-      Ce projet a pour objectif de développer un bot capable de jouer automatiquement au Démineur.
-      Il analyse l’état du plateau pour prendre des décisions logiques, comme cliquer sur une case ou y placer un drapeau,
-      en se basant sur les informations visibles. Le projet a été développé par étapes, avec plusieurs versions successives
-      permettant d’améliorer la logique et la flexibilité du bot.
-    </p>
+    <div class="but">
+      <h2>Fonctionnement</h2>
+      <ol>
+        <li>Capture d'écran de la grille du Démineur</li>
+        <li>Analyse des pixels pour identifier les cases</li>
+        <li>Application de la logique selon la version</li>
+        <li>Exécution des actions via PyAutoGUI</li>
+        <li>Répétition jusqu'à la victoire ou la défaite</li>
+      </ol>
+    </div>
 
-    <br>
+    <div class="but">
+      <h2>Tests et améliorations</h2>
+      <div class="duo">
+        <div class="ensemble">
+          <h3>Tests réalisés</h3>
+          <ul>
+            <li>Tests sur des dizaines de parties</li>
+            <li>Vérification de la fiabilité</li>
+            <li>Tests de performance</li>
+            <li>Validation des algorithmes</li>
+          </ul>
+        </div>
+        <div class="ensemble">
+          <h3>Améliorations futures</h3>
+          <ul>
+            <li>Implémentation du système de probabilités</li>
+            <li>Ajout de la reconnaissance d'image</li>
+            <li>Optimisation des performances</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <h2>Objectifs</h2>
-    <ul>
-      <li>Analyser l’écran pour repérer les cases du Démineur</li>
-      <li>Implémenter une logique de résolution automatique</li>
-      <li>Simuler les clics de souris pour jouer à la place de l’utilisateur</li>
-      <li>Améliorer progressivement la stratégie du bot en fonction des tests</li>
-    </ul>
-
-    <br>
-
-    <h2>Outils utilisés</h2>
-    <ul>
-      <li><strong>Python</strong> – langage principal utilisé pour sa simplicité et sa richesse en bibliothèques</li>
-      <li><strong>PyAutoGUI</strong> – pour simuler les clics de souris et les déplacements du curseur</li>
-      <li><strong>Pillow</strong> – pour lire les pixels de l’écran et identifier les cases du jeu</li>
-    </ul>
+    <div class="but">
+      <h2>Bilan personnel</h2>
+      <p>
+        Ce projet m'a permis d'approfondir mes compétences en Python et en algorithmique.
+        J'ai appris l'importance d'une approche itérative dans la résolution de problèmes complexes
+        et la nécessité de tester rigoureusement chaque version.
+      </p>
+      <p>
+        <strong>Points forts :</strong> Approche itérative, code modulaire, documentation claire<br>
+        <strong>Difficultés :</strong> Analyse d'image, gestion des cas particuliers<br>
+        <strong>Axes d'amélioration :</strong> Implémentation de l'IA avancée
+      </p>
+    </div>
   </div>
 
-
-  <div class="all_vers">
-    <div class="ver">
-      <h3>Version 1</h3>
-      <p>Détection des cases et clics aléatoires. Aucun raisonnement logique, uniquement pour tester les interactions de
-        base avec le jeu.</p>
+  <footer>
+    <h2>Contact</h2>
+    <hr class="bottom_line">
+    <div class="contact">
+      <a href="#"><img src="../../image/linkedin.png" alt=""></a>
+      <a href="https://github.com/Moonrise01"><img src="../../image/github.png" alt=""></a>
+      <a href="#"><img src="../../image/mail.png" alt=""></a>
     </div>
-    <div class="ver">
-      <h3>Version 2</h3>
-      <p>Lecture de la grille avec des pixels precis dans chaque case pour identifié le nombre ou le type de case.
-      Et ajout de logique, avec des condition certaine comme par exemple, si il ya le nombre 2 avec 2 cases autour
-      cela ve dire qu'il y a 2 bombes donc il place 2 drapeau. </p>
-    </div>
-    <div class="ver">
-      <h3>Version 3</h3>
-      <p>Placement de drapeaux plus précis, meilleure gestion des probabilités lorsque les choix deviennent ambigus. Début d'une stratégie plus flexible.</p>
-    </div>
-    <div class="ver">
-      <h3>Version 4</h3>
-      <p>Optimisation du code, gestion de cas complexes, et meilleure stabilité. Le bot devient plus rapide et prend moins de mauvaises décisions.</p>
-    </div>
-  </div>
-
+  </footer>
 </div>
 </body>
 </html>

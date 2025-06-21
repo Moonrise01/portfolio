@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAE 1.01 - Tris de base</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="page-container">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#" id="competence-toggle">Compétence</a>
+        <ul class="dropdown-menu" id="competence-menu">
+          <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+          <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+          <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+          <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+          <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+          <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Projet</a></li>
+      <li class="lang-item"><a href="#" id="lang">FR</a></li>
+    </ul>
+  </nav>
+
+  <div class="area">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1 class="titre">Comparaison d'approches algorithmiques : Tris de base</h1>
+
+    <section class="but">
+      <h2>Explication de la SAE</h2>
+      <p>
+        Cette SAE a pour but de découvrir et d’implémenter trois algorithmes de tri fondamentaux en informatique : le tri par sélection, le tri à bulle, et le tri par insertion.
+        L’objectif est de comprendre leurs fonctionnements, de les coder en Java, puis de comparer leurs performances dans différents cas d’utilisation.
+      </p>
+
+      <h2>Objectifs</h2>
+      <ul>
+        <li>Comprendre les principes des tris par sélection, bulle et insertion.</li>
+        <li>Implémenter ces algorithmes dans une classe Java nommée <code>TriUtil</code>.</li>
+        <li>Mettre en place un protocole de test pour valider la correction des tris.</li>
+        <li>Comparer les performances (temps d’exécution) des différents tris sur plusieurs jeux de données.</li>
+      </ul>
+
+      <h2>Outils utilisés</h2>
+      <ul>
+        <li><strong>Java</strong> pour l’implémentation des algorithmes.</li>
+        <li><strong>Environnement de développement (IDE)</strong> comme Eclipse, IntelliJ ou VSCode.</li>
+        <li><strong>Outils de mesure de performance</strong> (ex: System.nanoTime() en Java).</li>
+      </ul>
+    </section>
+
+    <section class="all_vers">
+      <div class="ver">
+        <h3>Le tri à bulle</h3>
+        <div class="exp">
+          <img src="../../image/TribulleImage.png" alt="">
+          <p>
+            Le tri à bulle fonctionne en parcourant plusieurs fois le tableau à trier et en échangeant les éléments adjacents qui sont dans le mauvais ordre.
+            C’est un algorithme simple à comprendre mais peu efficace pour les grands tableaux car sa complexité est en O(n²).
+          </p>
+        </div>
+      </div>
+
+      <div class="ver">
+        <h3>Le tri par sélection</h3>
+        <div class="exp">
+          <img src="../../image/TriSelectionImage.png" alt="">
+          <p>
+            Le tri par sélection consiste à chercher à chaque étape l’élément minimum du tableau non trié et à l’échanger avec la première position non triée.
+            Il effectue donc un nombre fixe de comparaisons mais peu d’échanges. Sa complexité est également O(n²).
+          </p>
+        </div>
+      </div>
+
+      <div class="ver">
+        <h3>Le tri par insertion</h3>
+        <div class="exp">
+          <img src="../../image/TriInsertionImage.png" alt="">
+          <p>
+            Le tri par insertion construit progressivement un sous-tableau trié, en insérant chaque nouvel élément à la bonne position.
+            Il est souvent plus performant que les deux autres sur des tableaux déjà partiellement triés. Sa complexité moyenne reste O(n²), mais dans le meilleur cas elle est O(n).
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <h2>Contact</h2>
+    <hr class="bottom_line">
+    <div class="contact">
+      <a href="#"><img src = "../../image/linkedin.png" alt=""></a>
+      <a href="https://github.com/Moonrise01"><img src = "../../image/github.png" alt=""></a>
+      <a href="#"><img src = "../../image/mail.png" alt=""></a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

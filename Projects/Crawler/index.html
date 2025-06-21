@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crawler Web - Compétence 2</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="page-container">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#" id="competence-toggle">Compétence</a>
+        <ul class="dropdown-menu" id="competence-menu">
+          <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+          <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+          <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+          <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+          <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+          <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Projet</a></li>
+    </ul>
+  </nav>
+
+  <div class="area">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1 class="titre">Crawler Web</h1>
+
+    <div class="but">
+      <h2>Présentation du projet</h2>
+      <h3>Explication du projet</h3>
+      <p>
+        Le projet consiste à développer un crawler web, un programme capable de parcourir automatiquement les pages d’un site web
+        en suivant les liens internes. L'objectif est de récupérer toutes les URLs d’un site sans visiter deux fois la même page,
+        en respectant une logique d’exploration efficace.
+      </p>
+
+      <p>
+        Ce projet est né de ma curiosité pour le fonctionnement des moteurs de recherche. Je voulais comprendre comment une machine
+        pouvait explorer un site de manière automatique, et surtout comment structurer cette exploration efficacement.
+      </p>
+
+
+      <h3>Objectifs</h3>
+      <ul>
+        <li>Analyser un problème complexe et le décomposer en sous-tâches algorithmiques.</li>
+        <li>Implémenter deux versions différentes : une récursive et une itérative.</li>
+        <li>Utiliser des structures de données adaptées (liste, pile, ensemble).</li>
+        <li>Comparer les deux approches en termes de fonctionnement et limitations.</li>
+      </ul>
+
+      <h3>Outils utilisés</h3>
+      <ul>
+        <li><strong>Java</strong> - langage principal</li>
+        <li><strong>Jsoup</strong> - bibliothèque pour parser le HTML</li>
+        <li><strong>IntelliJ IDEA Community Edition</strong> - IDE</li>
+      </ul>
+    </div>
+
+    <div class="but">
+      <h2>Analyse méthodique du problème</h2>
+      <p>
+        J’ai commencé par analyser le problème en plusieurs étapes : récupérer le contenu HTML d’une page, extraire tous les liens internes,
+        puis visiter ces liens sans jamais revisiter une page déjà visitée. Ce processus devait être répété jusqu’à ce que toutes les pages
+        du site soient explorées.
+      </p>
+      <p>
+        Pour cela, j’ai identifié les structures nécessaires : une liste ou pile pour stocker les pages à visiter, et un ensemble pour garder la trace
+        des pages déjà explorées.
+      </p>
+    </div>
+
+    <div class="but">
+      <h2>Extraits de code : versions récursive et itérative</h2>
+      <p>
+        Voici des extraits simplifiés montrant les deux approches que j’ai développées pour parcourir les pages web.
+        Chaque version résout le même problème, mais avec une logique différente.
+      </p>
+
+      <div class="duo-code">
+        <figure>
+          <img src="../../image/Capture%20d'écran%202025-06-21%20112024.png" alt="Code version récursive" class="code-image" />
+          <figcaption style="text-align: center; font-style: italic;">Version récursive du crawler</figcaption>
+        </figure>
+
+        <figure>
+          <img src="../../image/Capture%20d'écran%202025-06-21%20112130.png" alt="Code version itérative" class="code-image" />
+          <figcaption style="text-align: center; font-style: italic;">Version itérative du crawler</figcaption>
+        </figure>
+      </div>
+
+      <p style="margin-top: 20px;">
+        <em>
+          Les deux versions utilisent Jsoup pour récupérer les liens HTML, mais la version itérative est plus stable à grande échelle,
+          car elle évite les erreurs de dépassement de pile causées par la récursivité.
+        </em>
+      </p>
+    </div>
+
+
+
+    <div class="but">
+      <h2>Raisonnement algorithmique et structures de données</h2>
+      <p>
+        Ce projet m’a permis de comprendre et d’appliquer des notions fondamentales en algorithmique, comme le parcours en profondeur (DFS),
+        l’utilisation d’ensembles pour éviter les doublons, et la gestion de la pile d’appels ou pile explicite. J’ai aussi réfléchi aux conditions d’arrêt
+        pour éviter les boucles infinies.
+      </p>
+    </div>
+
+    <div class="but">
+      <h2>Validation et justification des choix</h2>
+      <p>
+        J’ai testé les deux versions sur plusieurs sites web, en comparant les résultats et en mesurant la robustesse face à des sites complexes.
+        La version itérative s’est révélée plus stable, justifiant mon choix final pour cette approche.
+      </p>
+    </div>
+
+    <div class="but">
+      <h2>Bilan personnel</h2>
+      <p>
+        Ce projet m’a aidé à développer une pensée algorithmique plus rigoureuse, ainsi qu’à mieux comprendre les avantages et limites des méthodes récursives
+        et itératives. J’ai également amélioré ma capacité à choisir les structures de données adaptées à un problème donné.
+      </p>
+      <p>
+        <strong>Points forts :</strong> analyse claire du problème, double implémentation, compréhension des structures.<br>
+        <strong>Difficultés :</strong> gestion des limites de récursion, optimisation des performances.<br>
+        <strong>Axes d’amélioration :</strong> gestion des erreurs réseau, optimisation mémoire, interface utilisateur.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <h2>Contact</h2>
+    <hr class="bottom_line" />
+    <div class="contact">
+      <a href="#"><img src="../../image/linkedin.png" alt="LinkedIn" /></a>
+      <a href="https://github.com/tonpseudo"><img src="../../image/github.png" alt="GitHub" /></a>
+      <a href="#"><img src="../../image/mail.png" alt="Email" /></a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

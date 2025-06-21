@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>me</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="page-container">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#" id="competence-toggle">Compétence</a>
+        <ul class="dropdown-menu" id="competence-menu">
+          <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+          <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+          <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+          <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+          <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+          <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Project</a></li>
+    </ul>
+  </nav>
+
+  <div class="area" >
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div >
+
+  <div class="container">
+    <h1 class="titre">Serveur personnel</h1>
+
+    <div class="but">
+      <h2>Présentation du projet</h2>
+      <p>
+        Dans le cadre de ma formation, j'ai mis en place un serveur personnel appelé <strong>idk</strong>, sur
+        lequel j'ai installé et configuré Ubuntu Server 24.10.
+        Ce projet m'a permis de mettre en pratique plusieurs compétences techniques en systèmes et réseaux, tout en
+        gagnant en autonomie sur la gestion d'un environnement serveur complet.
+      </p>
+      <img src="../../image/20250620_225337.jpg" alt="Photo du serveur physique" style="display: block; margin: 20px auto; max-width: 50%; border-radius: 12px;">
+    </div>
+
+    <div class="but">
+      <h2>Objectifs</h2>
+      <ul>
+        <li>Installer un système d'exploitation serveur</li>
+        <li>Configurer les outils de développement (Java, Git, PostgreSQL...)</li>
+        <li>Installer Nginx, PostgreSQL et Docker</li>
+        <li>Mettre en place des services avec Docker</li>
+        <li>Comprendre le fonctionnement multitâche/multiutilisateur de Linux</li>
+        <li>Programmer des scripts Shell pour la maintenance du serveur</li>
+      </ul>
+    </div>
+
+    <div class="but">
+      <h2>Installation et configuration</h2>
+      <p>
+        J'ai installé Ubuntu Server 24.10 sur un ancien PC que j'utilise comme serveur. J'ai configuré l'accès SSH,
+        installé <strong>Nginx</strong> comme serveur web, <strong>PostgreSQL</strong> pour la gestion de base de données, et <strong>Docker</strong> pour l'exécution de services en conteneurs.
+        J'ai également appris à gérer les utilisateurs et les permissions Linux pour sécuriser l'accès au serveur.
+      </p>
+      <img src="../../image/Capture%20d’écran%202025-06-20%20225845.png" alt="Terminal montrant l'installation" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 12px;">
+    </div>
+
+    <div class="but">
+      <h2>Installation des services</h2>
+      <p>Voici les commandes utilisées pour installer les différents services :</p>
+      <ul>
+        <li><strong>Mettre à jour les paquets :</strong><br><code>sudo apt update && sudo apt upgrade</code></li>
+        <li><strong>Installer Nginx :</strong><br><code>sudo apt install nginx</code></li>
+        <li><strong>Installer Docker :</strong><br><code>sudo apt install docker.io</code></li>
+        <li><strong>Démarrer et activer Docker :</strong><br><code>sudo systemctl start docker && sudo systemctl enable docker</code></li>
+        <li><strong>Installer PostgreSQL avec Docker :</strong><br>
+          <code>docker run --name postgres-container -e POSTGRES_PASSWORD=motdepasse -d -p 5432:5432 postgres</code>
+        </li>
+      </ul>
+      <p>Chaque service a ensuite été testé localement via son port ou son interface de gestion pour vérifier son bon fonctionnement.</p>
+    </div>
+
+    <div class="but">
+      <h2>Configuration de Nginx et nom de domaine</h2>
+      <p>
+        Après l’installation de Nginx, j’ai configuré un hôte virtuel pour héberger mon site web. J’ai modifié le fichier de configuration
+        situé dans <code>/etc/nginx/sites-available/</code> et créé un lien symbolique vers <code>sites-enabled</code> :
+      </p>
+
+      <pre><code>
+sudo nano /etc/nginx/sites-available/moonset.fr
+
+# Exemple de configuration :
+server {
+    listen 80;
+    server_name moonset.fr;
+
+    root /var/www/idk;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+  </code></pre>
+
+      <p>
+        J’ai ensuite activé le site et rechargé Nginx :
+      </p>
+
+      <pre><code>
+sudo ln -s /etc/nginx/sites-available/moonset.fr /etc/nginx/sites-enabled/
+sudo systemctl reload nginx
+  </code></pre>
+
+      <p>
+        Pour le nom de domaine, j’ai configuré un enregistrement DNS de type A chez mon fournisseur de domaine,
+        pointant vers l’adresse IP publique de mon serveur.
+      </p>
+      <img src="../../image/nginx_config.png" alt="Capture d'écran configuration nginx" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 12px;">
+    </div>
+
+    <div class="but">
+      <h2>Exemple de fichier docker-compose</h2>
+      <pre><code>
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: motdepasse
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+      </code></pre>
+      <p>Ce fichier me permet de lancer PostgreSQL avec persistance de données en une seule commande.</p>
+    </div>
+
+    <div class="but">
+      <h2>Automatisation par script</h2>
+      <p>Voici un exemple de script que j'ai rédigé pour mettre à jour les services automatiquement :</p>
+      <pre><code>
+#!/bin/bash
+sudo apt update && sudo apt upgrade -y
+docker-compose -f /home/moi/docker-compose.yml restart
+      </code></pre>
+    </div>
+
+    <div class="but">
+      <h2>Compétences démontrées</h2>
+      <ul>
+        <li>Utilisation d’un OS serveur en ligne de commande</li>
+        <li>Installation et sécurisation de services Linux</li>
+        <li>Utilisation et orchestration de conteneurs Docker</li>
+        <li>Configuration de Nginx et DNS avec nom de domaine</li>
+        <li>Utilisation de scripts Shell pour automatiser des tâches</li>
+      </ul>
+    </div>
+
+    <div class="but">
+      <h2>Services déployés avec Docker</h2>
+      <p>
+        En utilisant Docker, j'ai déployé des services tels que PostgreSQL et Nginx. Cela m'a permis de mieux comprendre
+        la gestion des conteneurs, la configuration réseau interne, ainsi que la persistance des données via des volumes.
+        J’ai aussi pu expérimenter la configuration de fichiers <code>docker-compose.yml</code> pour automatiser les déploiements.
+      </p>
+    </div>
+
+    <div class="but">
+      <h2>Bilan personnel</h2>
+      <p>
+        Ce projet m'a permis de mieux comprendre le fonctionnement d'un système Linux, de me familiariser avec Docker,
+        et de devenir plus autonome dans l'administration système. J'ai également pris conscience de l'importance de
+        la sécurité et de la gestion des permissions.
+      </p>
+      <p>
+        <strong>Points forts :</strong> Autonomie, installation fonctionnelle, bonne compréhension de Docker<br>
+        <strong>Difficultés :</strong> Problèmes de permissions avec PostgreSQL, réseau Wi-Fi instable<br>
+        <strong>Axes d'amélioration :</strong> Approfondir les réseaux, scripting plus avancé, sécurisation du serveur
+      </p>
+    </div>
+
+    <div class="but" style="text-align: center;">
+      <a href="https://github.com/Moonrise01" target="_blank" class="btn-source">
+        Voir mes projets liés sur GitHub
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <h2>Contact</h2>
+    <hr class="bottom_line">
+    <div class="contact">
+      <a href="#"><img src="../../image/linkedin.png" alt=""></a>
+      <a href="https://github.com/Moonrise01"><img src="../../image/github.png" alt=""></a>
+      <a href="#"><img src="../../image/mail.png" alt=""></a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

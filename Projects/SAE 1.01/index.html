@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SAE 1.01</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="../../index.html">Accueil</a></li>
+    <li class="dropdown">
+      <a href="#" id="competence-toggle">Compétence</a>
+      <ul class="dropdown-menu" id="competence-menu">
+        <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+        <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+        <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+        <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+        <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+        <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+      </ul>
+    </li>
+    <li><a href="../index.html">Project</a></li>
+    <li class="lang-item"><a href="#" id="lang">FR</a></li>
+  </ul>
+</nav>
+
+<div class="area" >
+  <ul class="circles">
+    <li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li>
+  </ul>
+</div >
+
+<div class="container">
+  <h1 class = "titre">Implementation d'un besoin client</h1>
+
+  <div class="but">
+    <h2>Explication de la SAE</h2>
+    <p>
+      Ce projet a pour objectif de développer un bot capable de jouer automatiquement au Démineur.
+      Il analyse l’état du plateau pour prendre des décisions logiques, comme cliquer sur une case ou y placer un drapeau,
+      en se basant sur les informations visibles. Le projet a été développé par étapes, avec plusieurs versions successives
+      permettant d’améliorer la logique et la flexibilité du bot.
+    </p>
+
+    <br>
+
+    <h2>Objectifs</h2>
+    <ul>
+      <li>??</li>
+      <li>??</li>
+      <li>??</li>
+      <li>??</li>
+    </ul>
+
+    <br>
+
+    <h2>Outils utilisés</h2>
+    <ul>
+      <li><strong>Java</strong></li>
+      <li><strong>???</strong></li>
+    </ul>
+  </div>
+
+
+  <div class="all_vers">
+    <div class="ver">
+      <h3>Exercice n°1</h3>
+      <div class="exp">
+        <video src="../../video/videoSae1.01Ex1.mp4" loop autoplay muted playsinline></video>
+        <p>Réalisation d’un mini-labyrinthe en Java, où un objet (O) se déplace sur une grille chargée depuis un fichier
+          (grille.data). L’objet ne peut ni sortir du plateau ni traverser les murs. J’ai implémenté une classe Labyrinthe
+          permettant l’affichage de la grille et le déplacement selon les directions (N, S, E, O).</p>
+      </div>
+    </div>
+    <div class="ver">
+      <h3>Exercice n°2</h3>
+      <div class="exp">
+        <video src="../../video/videoSae1.01Ex2.mp4" loop autoplay muted playsinline></video>
+        <div class="exp-text">
+        <p>Extension du projet précédent avec l’ajout d’une sortie (@) et l’introduction de l’architecture MVC
+          (Modèle-Vue-Contrôleur).</p>
+          <ul>
+            <li>Modèle : la classe Labyrinthe gère les déplacements et détecte si l’objet atteint la sortie.</li>
+            <li>Vue : IhmCui prend en charge l’affichage et les saisies utilisateur.</li>
+            <li>Contrôleur : la classe Controleur fait le lien entre la vue et le modèle.</li>
+          </ul>
+          <p>De plus nous avons fait l'ajout de méthodes d’accès sécurisées à la grille, tout en garantissant son intégrité
+            (pas d’accès direct à la grille complète).</p>
+        </div>
+      </div>
+    </div>
+    <div class="ver">
+      <h3>Exercice n°3</h3>
+      <div class="exp">
+        <video src="../../video/videoSae1.01Ex3.mp4" loop autoplay muted playsinline></video>
+        <p>Pour cette troisième étape, j’ai intégré une interface graphique (GUI) à mon labyrinthe Java, permettant de
+          contrôler l’objet via les flèches directionnelles.<br>
+          En m’appuyant sur une fiche pédagogique fournie, j’ai conçu un contrôleur graphique basé sur la classe
+          FrameGrille, et utilisé des images 30x30 pour représenter les éléments du labyrinthe.<br>
+          Le modèle (Labyrinthe) n’a pas été modifié : l’interface se contente d’interagir via le contrôleur. Ce projet
+          m’a initié à la conception d’interfaces graphiques en Java et à la gestion des événements clavier.</p>
+      </div>
+    </div>
+    <div class="ver">
+      <h3>Exercice n°4</h3>
+      <div class="exp">
+        <video src="../../video/videoSae1.01Ex4.mp4" loop autoplay muted playsinline></video>
+        <p>Dans cette dernière version, j’ai amélioré l’affichage du labyrinthe en distinguant visuellement les différents
+          types de murs à l’aide d’images variées (40×40).<br>
+          L’interprétation graphique est désormais gérée dans le contrôleur, qui détermine quelle image utiliser selon le
+          voisinage de chaque mur.<br>
+          Le modèle (Labyrinthe) reste inchangé, mais l’interface graphique devient plus immersive. J’ai également ajouté
+          un compteur de déplacements visibles à l’écran. Ce projet m’a permis d’approfondir la séparation entre les
+          couches métier et interface.</p>
+      </div>
+    </div>
+    <div class="ver">
+      <h3>Exercice n°5</h3>
+      <p>Optimisation du code, gestion de cas complexes, et meilleure stabilité.
+        Le bot devient plus rapide et prend moins de mauvaises décisions.</p>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>
