@@ -160,6 +160,7 @@ ul {
   width: 85%;
   color: #444;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 50px auto; /* Ajout d'une marge en bas et centrage horizontal */
 }
 /* Footer */
 footer {
@@ -168,6 +169,7 @@ footer {
   padding: 1rem 0;
   width: 100%;
   margin-top: auto;
+  position: relative; /* Ajouté pour assurer un bon positionnement */
 }
 
 footer h2 {
@@ -246,3 +248,69 @@ footer img:hover {
   100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
 }
   
+/* Ajoutez ces règles pour la responsivité générale */
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .presentation {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texte {
+    width: 100%;
+  }
+
+  .intro, .intro2 {
+    font-size: 1.2rem;
+  }
+
+  .about {
+    width: 90%;
+    margin: 0 auto 30px auto; /* Marge légèrement réduite sur mobile */
+    padding: 15px;
+  }
+
+  /* Navigation responsive */
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .navbar {
+    padding: 5px;
+  }
+}
+
+/* Ajustements pour les très petits écrans */
+@media screen and (max-width: 480px) {
+  .circular_image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .contact {
+    gap: 1rem;
+  }
+
+  footer img {
+    width: 28px;
+  }
+}
+
+/* Ajustements pour les grands écrans */
+@media screen and (min-width: 1200px) {
+  .main-content {
+    max-width: 1200px;
+  }
+}

@@ -23,7 +23,7 @@
           <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
         </ul>
       </li>
-      <li><a href="../index.html">Project</a></li>
+      <li><a href="../index.html">Projets</a></li>
     </ul>
   </nav>
 
@@ -122,27 +122,37 @@ sudo systemctl reload nginx
         Pour le nom de domaine, j’ai configuré un enregistrement DNS de type A chez mon fournisseur de domaine,
         pointant vers l’adresse IP publique de mon serveur.
       </p>
-      <img src="../../image/nginx_config.png" alt="Capture d'écran configuration nginx" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 12px;">
+      <img src="../../image/Capture%20d'écran%202025-06-22%20190625.png" alt="Configuration DNS" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 12px;">
+
+      <br>
+      <p>Voilà le site :</p>
+      <img src="../../image/Capture%20d’écran%202025-06-22%20185449.png" style="display: block; margin: 20px auto; max-width: 55%; border-radius: 12px;" alt="">
     </div>
 
     <div class="but">
       <h2>Exemple de fichier docker-compose</h2>
+      <p>Ce fichier me permet de lancer PostgreSQL avec persistance de données en une seule commande.</p>
       <pre><code>
-version: '3'
+version: '3.8'
+
 services:
-  db:
-    image: postgres
+  postgres:
+    image: postgres:17
+    container_name: postgres-container
+    restart: always
     environment:
-      POSTGRES_PASSWORD: motdepasse
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: [mot de passe normalement]
+      POSTGRES_DB: db_video
     ports:
       - "5432:5432"
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
 
-volumes:
-  db-data:
       </code></pre>
-      <p>Ce fichier me permet de lancer PostgreSQL avec persistance de données en une seule commande.</p>
+
+      <span>Commande pour le lancer : </span> <code>docker-compose up -d</code> <br>
+      <span>Commande pour le stopper : </span> <code>docker-compose down</code>
     </div>
 
     <div class="but">
@@ -150,8 +160,17 @@ volumes:
       <p>Voici un exemple de script que j'ai rédigé pour mettre à jour les services automatiquement :</p>
       <pre><code>
 #!/bin/bash
-sudo apt update && sudo apt upgrade -y
-docker-compose -f /home/moi/docker-compose.yml restart
+
+echo "Mise à jour de la liste des paquets..."
+sudo apt update
+
+echo "Mise à niveau des paquets..."
+sudo apt upgrade -y
+
+echo "Nettoyage des paquets inutiles..."
+sudo apt autoremove -y
+
+echo "Mise à jour terminée."
       </code></pre>
     </div>
 
@@ -167,15 +186,6 @@ docker-compose -f /home/moi/docker-compose.yml restart
     </div>
 
     <div class="but">
-      <h2>Services déployés avec Docker</h2>
-      <p>
-        En utilisant Docker, j'ai déployé des services tels que PostgreSQL et Nginx. Cela m'a permis de mieux comprendre
-        la gestion des conteneurs, la configuration réseau interne, ainsi que la persistance des données via des volumes.
-        J’ai aussi pu expérimenter la configuration de fichiers <code>docker-compose.yml</code> pour automatiser les déploiements.
-      </p>
-    </div>
-
-    <div class="but">
       <h2>Bilan personnel</h2>
       <p>
         Ce projet m'a permis de mieux comprendre le fonctionnement d'un système Linux, de me familiariser avec Docker,
@@ -188,20 +198,14 @@ docker-compose -f /home/moi/docker-compose.yml restart
         <strong>Axes d'amélioration :</strong> Approfondir les réseaux, scripting plus avancé, sécurisation du serveur
       </p>
     </div>
-
-    <div class="but" style="text-align: center;">
-      <a href="https://github.com/Moonrise01" target="_blank" class="btn-source">
-        Voir mes projets liés sur GitHub
-      </a>
-    </div>
   </div>
 
   <footer>
     <h2>Contact</h2>
     <hr class="bottom_line">
     <div class="contact">
-      <a href="#"><img src="../../image/linkedin.png" alt=""></a>
-      <a href="https://github.com/Moonrise01"><img src="../../image/github.png" alt=""></a>
+      <a href="https://www.linkedin.com/in/marta-azenha-nascimento-405795364/" target="_blank"><img src="../../image/linkedin.png" alt=""></a>
+      <a href="https://github.com/Moonrise01" target="_blank"><img src="../../image/github.png" alt=""></a>
       <a href="#"><img src="../../image/mail.png" alt=""></a>
     </div>
   </footer>
