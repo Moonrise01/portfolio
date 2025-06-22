@@ -21,6 +21,22 @@ ul {
   margin: 0;
 }
 
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.container {
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  flex: 1; /* Cette propriété est essentielle */
+}
+
 /* Navbar */
 .navbar {
   background-color: #333333;
@@ -150,8 +166,8 @@ footer {
   background-color: #333333;
   text-align: center;
   padding: 1rem 0;
-  position: relative;
-  margin-top: 4rem;
+  width: 100%;
+  margin-top: auto;
 }
 
 footer h2 {

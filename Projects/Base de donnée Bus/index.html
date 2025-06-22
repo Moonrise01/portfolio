@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Base de donnée de transport</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page-container">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li class="dropdown">
+        <a href="#" id="competence-toggle">Compétence</a>
+        <ul class="dropdown-menu" id="competence-menu">
+          <li><a href="../../Competence1/index.html">Compétence 1</a></li>
+          <li><a href="../../Compétence2/index.html">Compétence 2</a></li>
+          <li><a href="../../Compétence3/index.html">Compétence 3</a></li>
+          <li><a href="../../Compétence4/index.html">Compétence 4</a></li>
+          <li><a href="../../Compétence5/index.html">Compétence 5</a></li>
+          <li><a href="../../Compétence6/index.html">Compétence 6</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Projet</a></li>
+    </ul>
+  </nav>
+
+  <div class="area">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1 class="titre">Base de données - Transports en commun</h1>
+
+    <div class="but">
+      <h2>Présentation du projet</h2>
+      <h3>Contexte</h3>
+      <p>
+        Ce projet a pour objectif la création d'une base de données regroupant des informations sur les transports en commun
+        tels que les tramways, les bus et les funiculaires, en s'appuyant sur le standard.
+      </p>
+
+      <h3>Objectifs</h3>
+      <ul>
+        <li>Modéliser une base de données relationnelle conforme au standard GTFS</li>
+        <li>Manipuler des données réelles issues de fichiers CSV</li>
+        <li>Utiliser SQL pour créer des vues, fonctions et requêtes complexes</li>
+        <li>Déployer une base de données sur un serveur personnel</li>
+        <li>Visualiser et interpréter la structure des données de transport</li>
+      </ul>
+
+
+      <h3>Outils utilisés</h3>
+      <ul>
+        <li><strong>PostgreSQL</strong> — base de données relationnelle</li>
+        <li><strong>Serveur personnel</strong> — hébergement local</li>
+        <li><strong>DataGrip</strong> — environnement de développement (IDE)</li>
+      </ul>
+    </div>
+
+    <div class="but">
+      <h2>Modèle relationnel de la base</h2>
+      <p>
+        Voici un aperçu textuel des relations entre les différentes tables utilisées.
+      </p>
+      <pre style="overflow-x: auto; background: #f8f8f8; padding: 1em; border-radius: 8px; font-size: 14px;">
+agency (PK: agency_id)
+    └── routes (PK: route_id)
+
+routes (PK: route_id)
+    └── trips (PK: trip_id, FK: route_id, FK: service_id)
+
+trips (PK: trip_id)
+    ├── calendar (PK: service_id)
+    ├── calendar_dates (PK: service_id + date)
+    └── shapes (PK: shape_id + shape_pt_sequence)
+
+stops (PK: stop_id)
+    └── peut contenir un parent_station (FK sur stop_id)
+
+(stop_times est exclue ici à cause d’un problème d’import)
+      </pre>
+
+      <h3>Description des tables</h3>
+      <ul>
+        <li><strong>agency</strong> : informations sur l’opérateur (nom, site web, fuseau horaire, etc.)</li>
+        <li><strong>routes</strong> : lignes du réseau (noms, couleurs, type de transport)</li>
+        <li><strong>trips</strong> : trajets individuels effectués par une ligne, associés à un itinéraire et un horaire</li>
+        <li><strong>calendar</strong> : jours d’exploitation récurrents d’un service</li>
+        <li><strong>calendar_dates</strong> : exceptions à la règle (ex. jours fériés)</li>
+        <li><strong>shapes</strong> : coordonnées GPS représentant le tracé d’un trajet</li>
+        <li><strong>stops</strong> : points d’arrêt, avec coordonnées, accessibilité et hiérarchie parent/enfant</li>
+      </ul>
+
+      <p>
+        Ce modèle m’a permis de mieux comprendre la structure d’une base de données relationnelle complexe, en pratiquant
+        la modélisation de données, l’utilisation de clés primaires/étrangères, et le respect d’un standard réel.
+      </p>
+    </div>
+
+    <div class="but">
+      <h2>Création</h2>
+      <div class="illustration-section">
+        <img src="../../image/Capture%20d'écran%202025-06-21%20230133.png" alt="Création de la base" class="illustration-image">
+        <p class="caption">Création de la table routes avec Datagrip</p>
+      </div>
+    </div>
+
+    <div class="but">
+      <h2>Insertion des données</h2>
+      <div class="illustration-section">
+        <img src="../../image/Capture%20d’écran%202025-06-21%20231418.png" alt="Insertion des données" class="illustration-image">
+        <p class="caption">Insertion des donnée pour la table route</p>
+      </div>
+    </div>
+
+    <div class="but">
+      <h2>Méthode</h2>
+      <div class="duo">
+        <div class="illustration-section">
+          <img src="../../image/Capture%20d’écran%202025-06-22%20155835.png" alt="Méthode 1" class="illustration-image">
+          <p class="caption">Voir les services actifs le lundi</p>
+        </div>
+        <div class="illustration-section">
+          <img src="../../image/Capture%20d’écran%202025-06-22%20155813.png" alt="Méthode 2" class="illustration-image">
+          <p class="caption">Résultat de la requête affichant les services actifs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="but">
+      <h2>Vues SQL</h2>
+      <div class="duo">
+        <div class="illustration-section">
+          <img src="../../image/Capture%20d’écran%202025-06-22%20160115.png" alt="Vue SQL 1" class="illustration-image">
+          <p class="caption">Vue combinant les tables <code>routes</code>, <code>trips</code> et <code>calendar</code></p>
+        </div>
+        <div class="illustration-section">
+          <img src="../../image/Capture%20d’écran%202025-06-22%20160130.png" alt="Vue SQL 2" class="illustration-image">
+          <p class="caption">Résultat de la vue SQL</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="but">
+      <h2>Fonctions SQL</h2>
+      <div class="duo">
+        <div class="illustration-section">
+          <img src="../../image/Capture%20d’écran%202025-06-22%20161212.png" alt="Fonction 1" class="illustration-image">
+          <p class="caption">Afficher tous les voyages (trip_id) d’un route_id</p>
+        </div>
+        <div class="illustration-section">
+          <img src="../../image/Capture%20d’écran%202025-06-22%20161228.png" alt="Fonction 2" class="illustration-image">
+          <p class="caption">Résultat de la fonction</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h2>Contact</h2>
+    <hr class="bottom_line">
+    <div class="contact">
+      <a href="#"><img src="../../image/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://github.com/Moonrise01"><img src="../../image/github.png" alt="GitHub"></a>
+      <a href="#"><img src="../../image/mail.png" alt="Email"></a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
